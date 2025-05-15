@@ -3,19 +3,48 @@
   "displayName": "Uisap Core Framework Helper",
   "description": "Language helper for @uisap/core",
   "version": "0.0.1",
+  "publisher": "uisap",
+  "repository": "https://github.com/sefacicekli/uisap-core-framework-helper.git",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.100.0"
   },
+  "type": "module",
   "categories": [
-    "Other"
+    "Programming Languages"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:javascript"
+  ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "uisap-core-framework-helper.helloWorld",
-      "title": "Hello World"
-    }]
+    "commands": [
+      {
+        "command": "uisap-core-framework-helper.helloWorld",
+        "title": "Hello World"
+      }
+    ],
+    "languages": [
+      {
+        "id": "javascript",
+        "extensions": [
+          ".js"
+        ],
+        "aliases": [
+          "JavaScript",
+          "javascript"
+        ]
+      }
+    ],
+    "icons": {
+      "uisap-icon": {
+        "description": "Uisap icon",
+        "default": {
+          "fontPath": "media/icomoon.woff",
+          "fontCharacter": "\\e905"
+        }
+      }
+    }
   },
   "scripts": {
     "lint": "eslint .",
@@ -23,11 +52,15 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.100.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
-    "eslint": "^9.25.1",
+    "@types/vscode": "^1.100.0",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.25.1"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.27.2",
+    "@babel/traverse": "^7.27.1"
   }
 }

@@ -1,65 +1,58 @@
-# uisap-core-framework-helper README
+# UISAP Core Framework Helper
 
-This is the README for your extension "uisap-core-framework-helper". After writing up a brief description, we recommend including the following sections.
+A Visual Studio Code extension to enhance development with the `@uisap/core` framework, providing navigation support for models and routes in the UISAP Integration Suite API.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Model Navigation**: Click on model properties like `this.activityModel` in controllers to jump to the corresponding model file (e.g., `app/models/Activity.js`), based on the `modelsDir` setting in `config/app.js`.
+- **Route Navigation**: In `routes/api.js`, click on controller names (e.g., `ExampleController`) to open the controller file, or method names (e.g., `'index'`) to navigate to the specific method definition.
 
-For example if there is an image subfolder under your extension project workspace:
+### Example Usage
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- **Model Navigation**:
+  In `app/controllers/ActivitiesController.js`, right-click `this.activityModel` and select **Go to Definition** to open `app/models/Activity.js`.
+- **Route Navigation**:
+  In `routes/api.js`, right-click `SystemHealthController` or `'getHealth'` in `fastify.Route.get('/system-health', { handler: [SystemHealthController, 'getHealth'] });` to navigate to the controller or method.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- VS Code version 1.100.0 or higher.
+- Node.js version 20.x.
+- A project using the `@uisap/core` framework (e.g., UISAP Integration Suite API).
+
+## Installation
+
+1. Install the extension from the VS Code Marketplace (once published) or manually via a `.vsix` file.
+2. Open a `@uisap/core` project in VS Code.
+3. Ensure `.js` files are recognized as JavaScript (default in VS Code).
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+This extension does not currently add any custom settings.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Ensure your project follows the standard `@uisap/core` structure (e.g., `app/models`, `app/controllers`, `routes/api.js`).
+- Windows path handling requires normalized paths, which the extension handles automatically.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
+- Initial release with model and route navigation for `@uisap/core` projects.
+- Supports jumping to model files from `this.<model>Model` references.
+- Supports navigating to controller files and methods from `routes/api.js`.
 
-Initial release of ...
+## Contributing
 
-### 1.0.1
+Contributions are welcome! Please submit issues or pull requests to the [GitHub repository](#).
 
-Fixed issue #.
+## License
 
-### 1.1.0
-
-Added features X, Y, and Z.
+MIT License
 
 ---
 
-## Working with Markdown
+**Following extension guidelines**
 
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This extension follows the [VS Code extension guidelines](https://code.visualstudio.com/api/references/extension-guidelines).
